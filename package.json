@@ -1,0 +1,24 @@
+{
+  "name": "heracles",
+  "version": "0.0.1",
+  "author": "Sam Fredrickson <kinghajj@gmail.com>",
+  "description": "A realtime text-based online war game.",
+  "license": "MIT",
+  "keywords": ["web", "http", "game", "realtime", "war"],
+  "dependencies": {
+    "redis":      "0.8.x",
+    "socket.io":  "0.9.x",
+    "underscore": "1.4.x"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "scripts": {
+    "start": "bash ./devel-start.sh",
+    "stop":  "bash ./devel-stop.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url":  "http://github.com/kinghajj/heracles.git"
+  }
+}
