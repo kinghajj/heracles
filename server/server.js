@@ -1,9 +1,6 @@
-var cluster = require('cluster');
-var config  = require('./config');
+var config  = require('./config'),
+    cluster = require('./../common/cluster');
 
-if(cluster.isMaster) {
-  cluster.on('exit', cluster.fork);
-  for(var i = 0; i < config.fork; i++) cluster.fork();
-} else {
+cluster('app', config, function() {
   var io = require('socket.io').listen(config.port, { log: false });
-}
+});

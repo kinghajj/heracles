@@ -14,14 +14,13 @@
 //
 // 1. http://centminmod.com/siegebenchmarks/2013/020313/index.html
 
-var cluster = require('cluster'),
-    fs      = require('fs'),
+var fs      = require('fs'),
     http    = require('http'),
     path    = require('path'),
     url     = require('url'),
     util    = require('util'),
-    __      = require('underscore'),
-    config  = require('./config');
+    config  = require('./config'),
+    cluster = require('./../common/cluster');
 
 function handler(req, res) {
   var pathname = url.parse(req.url).pathname;
@@ -41,21 +40,6 @@ function handler(req, res) {
   });
 }
 
-if(cluster.isMaster) {
-  util.log('web master: starting');
-  cluster.on('fork', function(worker) {
-    util.log('web worker ' + worker.id + ': starting');
-  });
-  cluster.on('online', function(worker) {
-    util.log('web worker ' + worker.id + ': started');
-  });
-  cluster.on('exit', function(worker, code, signal) {
-    util.log('web worker ' + worker.id +
-             ': ended by ' + signal + ' with ' + code);
-    cluster.fork();
-  });
-  util.log('web master: creating ' + config.fork + ' workers');
-  __.times(config.fork, cluster.fork);
-} else {
+cluster('web', config, function() {
   http.createServer(handler).listen(config.port, config.hostname, config.backlog);
-}
+});
