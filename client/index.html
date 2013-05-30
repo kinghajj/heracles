@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="heracles">
   <head>
     <meta charset="utf-8">
     <title>index :: Heracles</title>
@@ -7,11 +7,12 @@
     <script src="http://localhost:1337/socket.io/socket.io.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="/js/heracles.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="/js/controllers.js"></script>
   </head>
   <body>
-    <div class="container">
-      <h1>Index</h1>
-      <p>I'm the index page!</p>
+    <div class="container" data-ng-view>
     </div>
   </body>
 </html>
