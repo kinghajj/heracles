@@ -2,11 +2,13 @@
 
 ## About
 
-## Design
+### Design
 
 The site will use AngularJS and Socket.IO to implement a realtime experience.
 The client files are served by a static HTTP server, while the core application
-logic is implemented by a separate Socket.IO server.
+logic is implemented by a separate Socket.IO server. Decoupling the web and
+application servers from the start should facilitate scaling, and the HTTP
+server can be exchanged in production for another one, such as nginx.
 
 ## Development
 
@@ -14,11 +16,15 @@ logic is implemented by a separate Socket.IO server.
 
 Start the web and application servers:
 
-```npm start```
+```sh
+npm start
+```
 
 Stop the web and application servers:
 
-```npm stop```
+```sh
+npm stop
+```
 
 ### Directory Structure
 
