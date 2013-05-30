@@ -14,8 +14,8 @@
     "node": ">= 0.10"
   },
   "scripts": {
-    "start": "bash ./devel-start.sh",
-    "stop":  "bash ./devel-stop.sh"
+    "start": "bash ./scripts/devel-start.sh",
+    "stop":  "bash ./scripts/devel-stop.sh"
   },
   "repository": {
     "type": "git",

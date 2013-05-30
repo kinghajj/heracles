@@ -18,7 +18,6 @@ var fs      = require('fs'),
     http    = require('http'),
     path    = require('path'),
     url     = require('url'),
-    util    = require('util'),
     config  = require('./config'),
     cluster = require('./../common/cluster');
 
