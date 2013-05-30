@@ -1,6 +1,6 @@
 module.exports = {
   port: 8080,
-  fork: 2, // require('os').cpus().length,
+  fork: 1, // require('os').cpus().length,
   root: require('path').join(__dirname, '..', 'client'),
   spec: {
     '/': {

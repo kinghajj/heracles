@@ -1,4 +1,4 @@
-# heracles - a realtime text-based online war game
+# heracles - a realtime textual war game
 
 ## About
 
@@ -22,7 +22,7 @@ Stop the web and application servers:
 
 ### Directory Structure
 
-    heracles/
+    heracles/            -- project root
       client/            -- static client files
         css/             -- stylesheets
         js/              -- JavaScript files
