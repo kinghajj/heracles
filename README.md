@@ -32,6 +32,9 @@ npm stop
       client/            -- static client files
         css/             -- stylesheets
         js/              -- JavaScript files
+          controllers.js -- AngularJS controllers
+          heracles.js    -- AngularJS app module
+          serices.js     -- AngularJS services/providers/factories
         partials/        -- AngularJS partials
         index.html       -- the main page
       common/            -- common node.js modules

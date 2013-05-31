@@ -1,8 +1,6 @@
 'use strict';
 
-var services = angular.module('heracles.services', []);
-
-services.factory('socket', function($rootScope) {
+heracles.factory('socket', function($rootScope) {
   var io_socket = io.connect('http://127.0.0.1:1337');
   var socket = {
     connected: false, connecting: false, reconnecting: false,
@@ -70,7 +68,7 @@ services.factory('socket', function($rootScope) {
   return socket;
 });
 
-services.factory('user', function($rootScope, socket) {
+heracles.factory('user', function($rootScope, socket) {
   var user = { login_failed: false };
 
   socket.on('session-key', function(res) {
@@ -90,7 +88,7 @@ services.factory('user', function($rootScope, socket) {
   return user;
 });
 
-services.factory('user_socket', function($rootScope, socket, user) {
+heracles.factory('user_socket', function($rootScope, socket, user) {
   return {
     emit: function(eventName, data, callback) {
       data.session_key = user.session_key;

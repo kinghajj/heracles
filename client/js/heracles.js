@@ -1,6 +1,6 @@
 'use strict';
 
-var heracles = angular.module('heracles', ['heracles.services']).
+var heracles = angular.module('heracles', []).
   config(['$locationProvider', function($locationProvider) {
     $locationProvider.html5Mode(true);
   }]);
