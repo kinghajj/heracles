@@ -40,13 +40,18 @@ npm stop
         devel-start.sh   -- start app and web servers; mapped to `npm start'
         devel-stop.sh    -- stop app and web servers; mapped to `npm stop'
       server/            -- the application server
-        config.js        -- application server configuration file
-        server.js        -- application server entry file
+        scripts/         -- Redis Lua scripts
+        config.js        -- configuration file
+        db.js            -- database setup module
+        io.js            -- socket.io setup module
+        log.js           -- wrapper around 'util.log' for clustered programs
+        scripts.js       -- Redis Lua script setup module
+        server.js        -- program entry file
       tmp/               -- tmp folder to be used by scripts
       web/               -- the web server
-        config.js        -- web server configuration file
-        mime.js          -- web server MIME type configuration file
-        web.js           -- web server entry file
+        config.js        -- configuration file
+        mime.js          -- MIME type configuration file
+        web.js           -- program entry file
       LICENSE.txt        -- license file
       README.md          -- this file
       package.json       -- npm package file
