@@ -1,5 +1,8 @@
-var redis = require('redis'),
-    config = require('./config');
+var redis  = require('redis'),
+    config = require('./config'),
+    log    = require('./log');
+
+log('making db connections...');
 
 var clients = {};
 
@@ -9,5 +12,7 @@ for(var client in config.db.clients) {
   clients[client] = redis.createClient(rconfig.port, rconfig.host);
   clients[client].select(cconfig[1] || 0);
 }
+
+log('db connections established');
 
 exports.clients = clients;
