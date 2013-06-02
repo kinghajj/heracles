@@ -3,7 +3,6 @@ var config  = require('./config'),
     cluster = require('./../common/cluster');
 
 cluster(log.appname, config, function() {
-  require('./scripts').on('done', function(loaded) {
-    require('./io');
-  });
+  require('./scripts');
+  require('./io');
 });

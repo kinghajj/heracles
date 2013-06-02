@@ -22,8 +22,6 @@ module.exports = {
   },
   scripts: {
     './server/scripts': {
-      'answer': 0,
-      'get': 1
     }
   }
 }

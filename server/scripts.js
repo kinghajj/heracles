@@ -1,21 +1,17 @@
-var events = require('events'),
-    fs     = require('fs'),
+var fs     = require('fs'),
     path   = require('path'),
     config = require('./config'),
     db     = require('./db')
     log    = require('./log');
 
 log('loading scripts...');
-var hashes = {}, scripts = new events.EventEmitter();
-var loaded = 0, expected = 0;
+var hashes = {}, scripts = {};
 
 function remember(script) {
   return function(err, sha) {
     if(err) throw err;
     log('loaded script `' + script + '`');
     hashes[script] = sha;
-    if(++loaded >= expected)
-      scripts.emit('done', loaded);
   }
 }
 
@@ -33,12 +29,6 @@ function create(dir, script) {
   };
 }
 
-// calculate expected number of scripts to load
-for(var dir in config.scripts)
-  for(var script in config.scripts[dir])
-    expected++;
-log('expecting ' + expected + ' scripts');
-
 // load scripts into db and save their hashes under their base names
 for(var dir in config.scripts) {
   for(var script in config.scripts[dir]) {
@@ -49,8 +39,6 @@ for(var dir in config.scripts) {
   }
 }
 
-scripts.on('done', function(loaded) {
-  log('loaded ' + loaded + ' script(s)');
-});
+log('finished loading scripts');
 
 module.exports = scripts;
